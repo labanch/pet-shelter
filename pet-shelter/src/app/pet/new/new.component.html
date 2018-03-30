@@ -1,0 +1,47 @@
+<h2>Know of a pet needing a home?</h2>
+<form (submit)="addPet()" #formData="ngForm">
+  <div class="errors" *ngIf='(name.touched || name.dirty) && name.invalid'>
+    <div class="errors" *ngIf='name.errors.required'>
+      Pet Name is required
+    </div>
+    <div class="errors" *ngIf='name.errors.minlength'>
+      Pet Name must be at least {{ name.errors.minlength.requiredLength }} characters
+    </div>
+    <br>
+  </div>
+  <div class="errors" *ngIf='(type.touched || type.dirty) && type.invalid'>
+    <div class="errors" *ngIf='type.errors.required'>
+      Pet Type is required
+    </div>
+    <div class="errors" *ngIf='type.errors.minlength'>
+      Pet Type must be at least {{ type.errors.minlength.requiredLength }} characters
+    </div>
+    <br>
+  </div>
+  <div class="errors" *ngIf='(description.touched || description.dirty) && description.invalid'>
+    <div class="errors" *ngIf='description.errors.required'>
+      Pet Description is required
+    </div>
+    <div class="errors" *ngIf='description.errors.minlength'>
+      Pet Description must be at least {{ description.errors.minlength.requiredLength }} characters
+    </div>
+    <br>
+  </div>
+  <label for="name">Pet Name:</label><br>
+  <input type="text" name="name" minlength="3" [(ngModel)]="pet.name" #name="ngModel" required><br>
+  <label for="type">Pet Type:</label><br>
+  <input type="text" name="type" minlength="3" [(ngModel)]="pet.type" #type="ngModel" required><br>
+  <label for="description">Pet Description:</label><br>
+  <input type="text" name="description" minlength="3" [(ngModel)]="pet.description" #description="ngModel" required><br>
+  <h3>Skills:</h3>
+  <label for="skill1">Skill 1:</label>
+  <input type="text" name="skill1"><br>
+  <label for="skill2">Skill 2:</label>
+  <input type="text" name="skill2">
+  <br>
+  <label for="skill3">Skill 3:</label>
+  <input type="text" name="skill3">
+  <br>
+  <button [disabled]="formData.invalid">Add Pet</button>
+  <button [routerLink]="['']">Cancel</button>
+</form>

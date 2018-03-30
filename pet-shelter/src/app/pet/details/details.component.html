@@ -1,0 +1,11 @@
+<a [routerLink]="['']">Home</a>
+<h2>Details about {{pet.name}}</h2>
+<p><strong>Pet Type:</strong>&nbsp;&nbsp;&nbsp;{{pet.type}}</p>
+<p><strong>Pet Description:</strong>&nbsp;&nbsp;&nbsp;{{pet.description}}</p>
+<h4>Skills:</h4>
+<div *ngFor="let skill of skills">
+  <p>{{skill.skill}}</p>
+</div>
+<p><strong>Likes:</strong>&nbsp;&nbsp;&nbsp;{{pet.likes}}</p>
+<button [disabled]="liked" (click)="addLike()">Like this pet</button>
+<button (click)="removePet()">Adopt this pet</button>
