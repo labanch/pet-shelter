@@ -18,21 +18,21 @@ export class PetService {
   }
 
   retrieveAll() {
-    this._http.get('http://172.31.19.90:8000/api/pets').subscribe(
+    this._http.get('/api/pets').subscribe(
       pets => this.petObservable.next(pets.json()),
       errorResponse => console.log(errorResponse)
     );
   }
 
   addPet(pet) {
-    this._http.post('http://172.31.19.90:8000/api/pets', pet).subscribe(
+    this._http.post('/api/pets', pet).subscribe(
       response => this.retrieveAll(),
       errorResponse => console.log(errorResponse)
     );
   }
 
   getPet(id){
-    this._http.get(`http://172.31.19.90:8000/api/pets/${id}`).subscribe(data => {
+    this._http.get(`/api/pets/${id}`).subscribe(data => {
       this.pet = data;
     });
   }
@@ -46,7 +46,7 @@ export class PetService {
       likes: pet.likes,
       _id: pet._id
     }
-    this._http.post(`http://172.31.19.90:8000/api/pets/${pet._id}`, newData).subscribe(
+    this._http.post(`/api/pets/${pet._id}`, newData).subscribe(
       res => {
         console.log('Done updating')
       }
@@ -54,7 +54,7 @@ export class PetService {
   }
 
   deletePet(id) {
-    this._http.delete(`http://172.31.19.90:8000/api/pets/${id}`).subscribe(
+    this._http.delete(`/api/pets/${id}`).subscribe(
       res => console.log('Deleted', res)
     );
   }
