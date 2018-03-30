@@ -36,6 +36,7 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
     this.liked = false;
+    console.log('details', this.pet.skills);
   }
 
   addLike(option: any) {
