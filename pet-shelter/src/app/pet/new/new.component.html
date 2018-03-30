@@ -35,12 +35,12 @@
   <input type="text" name="description" minlength="3" [(ngModel)]="pet.description" #description="ngModel" required><br>
   <h3>Skills:</h3>
   <label for="skill1">Skill 1:</label>
-  <input type="text" name="skill1"><br>
+  <input type="text" name="skill1" [(ngModel)]="pet.skills[0].skill"><br>
   <label for="skill2">Skill 2:</label>
-  <input type="text" name="skill2">
+  <input type="text" name="skill2" [(ngModel)]="pet.skills[1].skill">
   <br>
   <label for="skill3">Skill 3:</label>
-  <input type="text" name="skill3">
+  <input type="text" name="skill3" [(ngModel)]="pet.skills[2].skill">
   <br>
   <button [disabled]="formData.invalid">Add Pet</button>
   <button [routerLink]="['']">Cancel</button>
